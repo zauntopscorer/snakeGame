@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+    <!--    设置四角样式-->
+    <corners android:radius="12dp"/>
+    <!--    设置渐变色-->
+        <gradient android:endColor="#93d1f6"
+            android:centerColor="#3aa9e9"
+            android:startColor="#93d1f6"/>
+
+    <!--    定义几何图形大小-->
+        <size android:height="70dp" android:width="113dp"/>
+
+    <!--    定义使用单色填充-->
+<!--    <solid android:color="@color/LightSkyBlue"></solid>-->
+
+    <!--    为几何图形设置边框-->
+<!--    <stroke android:color="@color/colorWhite"-->
+<!--        android:width="2dp"/>-->
+</shape>
