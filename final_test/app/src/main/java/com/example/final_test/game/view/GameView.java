@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.final_test.CommonData;
+import com.example.final_test.dataBaseVisit.UserInfoVisit;
 import com.example.final_test.game.bean.GridBean;
 import com.example.final_test.game.bean.SnakeBean;
 import com.example.final_test.game.Control;
@@ -152,7 +153,6 @@ public class GameView extends View {
     public boolean refreshView(){
         List<PointBean> pointList = snakeBean.getSnake();
         PointBean point = pointList.get(0);
-//        LogUtil.i("point = " + point);
         PointBean pointNew = null;
 
         //移动
@@ -181,6 +181,7 @@ public class GameView extends View {
         }
 
         if(isFailed(point)){
+
             isFailed =true;
             invalidate();
             return true;

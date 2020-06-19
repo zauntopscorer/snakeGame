@@ -7,10 +7,11 @@ import android.os.Message;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.final_test.CommonData;
+import com.example.final_test.dataBaseVisit.UserInfoVisit;
 import com.example.final_test.game.bean.GridBean;
 import com.example.final_test.game.view.GameView;
 
-public class MainActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
     private GridBean gridBean;
 
     private static final int WHAT_REFRESH = 200;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     // 结束告诉程序你输了
 //                    Toast.makeText(MainActivity.this,"GameOver",Toast.LENGTH_SHORT).show();
+                    UserInfoVisit.modifyUserInfo(CommonData.presentUsername,CommonData.presentPassword,CommonData.scorer+"");
                 }
             }
         }

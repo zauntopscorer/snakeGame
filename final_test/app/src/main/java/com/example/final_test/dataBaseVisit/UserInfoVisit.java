@@ -78,10 +78,32 @@ public class UserInfoVisit extends BaseVisit {
         return userInfo;
     }
 
-    public static ArrayList<UserInfo> queryAllStudents(){
+    //查询所有用户
+    public static ArrayList<UserInfo> queryAllUsers(){
         ArrayList<UserInfo> users = new ArrayList<UserInfo>();
         if (db != null){
             Cursor cursor = db.rawQuery("select * from "+tableName,new String[]{});
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){//查询指针移动到最后一行
+                String userName = cursor.getString(cursor.getColumnIndex(ID));//参数表示列号
+                String password = cursor.getString(cursor.getColumnIndex(PASSWORD));
+                String scorer = cursor.getString(cursor.getColumnIndex(SCORER));
+                UserInfo userInfo = new UserInfo();
+                userInfo.setUserName(userName);
+                userInfo.setPassword(password);
+                userInfo.setScorer(scorer);
+                users.add(userInfo);
+                cursor.moveToNext();//需要将查询指针下移一行
+            }
+        }
+        return users;
+    }
+
+    //查询所有用户，按分数从高到低排序
+    public static ArrayList<UserInfo> queryAllUsersOrderByScore(){
+        ArrayList<UserInfo> users = new ArrayList<UserInfo>();
+        if (db != null){
+            Cursor cursor = db.rawQuery("select * from "+tableName+" ORDER BY "+SCORER+" DESC",new String[]{});
             cursor.moveToFirst();
             while (!cursor.isAfterLast()){//查询指针移动到最后一行
                 String userName = cursor.getString(cursor.getColumnIndex(ID));//参数表示列号
